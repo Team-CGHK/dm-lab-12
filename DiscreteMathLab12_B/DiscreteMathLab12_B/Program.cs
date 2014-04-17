@@ -11,7 +11,7 @@ namespace DiscreteMathLab12_B
         {
             StreamReader sr = new StreamReader("map.in");
             StreamWriter sw = new StreamWriter("map.out");
-            StringMap set = new StringMap();
+            StringMap set = new asd();
             string s = sr.ReadLine();
             while (!string.IsNullOrEmpty(s))
             {
@@ -69,14 +69,16 @@ namespace DiscreteMathLab12_B
             _table[x].RemoveAt(i);
         }
 
+	private const int b = 37;
+
         private int h1(string a)
         {
             int result = 0;
-            int t = 37;
-            int pow = 1;
+            int t = b;
             foreach (char c in a)
             {
-                result += c * (int)Math.Pow(t, pow++);
+                result += c * t;
+		t *= b;
             }
             return (Math.Sign(result) * result) % TableSize;
         }
